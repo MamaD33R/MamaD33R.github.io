@@ -1,0 +1,282 @@
+/* GENERAL STYLING */
+
+/*-- Body --*/
+body {
+    margin: 0%; /*Ensures site displays all the way to the edge of browser screen */
+}
+
+/*-- HEADING 1 ELEMENTS --*/
+h1 {
+    text-transform: uppercase; /* Capitalizing all h1 headings */
+    font-family: 'Shippori Mincho B1', serif; /* Setting font family of all h1 headings */
+    text-align: center; /* Centering all h1 elements */
+    margin-top: 3%; /* Adding small margin above h1 elements */
+    color:rgb(49, 59, 49);
+}
+
+/*-- HEADING 1 ELEMENT HOVER EFFECT --*/
+h1:hover {
+    filter: grayscale(5%); /* Adding a slightly gray filter to the h1 headings when hovered over */
+    transform: scale(1.1); /* When the h1 elements are hovered over they increase in size by 1.1 */
+    transition: transform 1s; /* Causing transformation to last 1 second */
+}
+
+/*-- STYLING FOR PORTFOLIO TITLE TEXT --*/
+.white-text {
+    color: #FFF;
+}
+
+/*-- PARAGRAPH ELEMENTS --*/
+p {
+    font-family: 'Playfair Display', serif;
+    text-align: justify; /* Justify text within paragraph elements */
+    letter-spacing: 1px; /* This expands text slightly */
+    font-size: 17px;
+    padding-left: 20px; /* Adds padding to the left of the paragraph element */
+    padding-right: 20px;
+}
+
+/*-- PARAGRAPH ELEMENT HOVER EFFECTS --*/
+p:hover {
+    transition: transform 1s; /* This makes the transform effect last 1 second */
+    transform: scale(1.01); /* This makes the paragraphs increase slightly in size when hovered over */
+}
+
+/*-- CENTER CLASS - APPLIES TO ALL ELEMENTS WITH CENTER CLASS --*/
+.center {
+    text-align: center;
+}
+
+.center:hover {
+    transition: transform 2s; /* Makes the transform effect last 2 seconds */
+    transform: scale(1.1); /* Makes the element the class "center" increase in size */
+}
+
+/*-- ANCHOR ELEMENTS --*/
+
+a {
+    color: rgb(146, 172, 125); /* Makes all links green */
+}
+
+/*-- IMAGE ELEMENTS --*/
+img {
+    filter: grayscale(75%); /* This rids images of 75% of their color */
+    border-radius: 8px; /* Giving all images slightly rounded corners */
+    max-width: 100%; /* Ensuring all images stay within the width of their container */
+    height: 340px; /* Sets height of all images */
+    display: block; /* Ensuring all images are able to be centered */
+    margin-left: auto; /* In combination with margin right auto, this centers all images */
+    margin-right: auto;
+}
+
+/*-- IMAGE ELEMENT HOVER EFFECTS */
+img:hover {
+    filter: grayscale(5%); /* brings back most of the image's color when hovered over */
+    transition: transform 1s;
+    transform: scale(1.1); 
+}
+
+/*-- MEDIA ADJUSTMENTS FOR SCREENS --*/
+@media screen and (max-width: 576px) {
+    img {
+        height: 100px;
+        margin-top: 150px;
+    }
+}
+
+/*-- STYLING FOR FOOTER ELEMENT --*/
+footer {
+    padding: 2%; /* Gives footer padding that is equal to 2% of the width of the element's area --*/
+    background-color: white;
+}
+/*----- END OF GENEERAL STYLING ----*/
+
+/*----- NAVBAR STYLING -----*/
+.navbar {
+    overflow: hidden; /* Ensuring any content that overflows beyond the boundry of navbar isn't displayed */
+    background-color: black;
+    position: fixed;
+    top: 0; /* Ensuring no space is displayed above the navbar */
+    width: 100%;
+    z-index: 1; /* Ensuring other elements don't display over navbar */
+    -webkit-animation: moveNav 5s; /* Applies the moveNav animation below for Safari 4.0 - 8.0 */
+    animation: moveNav 5s; /* Applies moveNav animation for all other browsers */
+}
+
+/*-- moveNav ANIMATION EFFECT FOR MOVING THE NAVBAR IN FROM LEFT OF THE SCREEN --*/
+@keyframes moveNav {
+    from {left: -100vw;} /* Navbar is starting off screen to the left */
+    to {left: 0vw;} /* Moves navbar into place on screen */
+}
+
+/*-- NAVBAR LINKS --*/
+.navbar a {
+    float: left;
+    display: block; /* Ensuring all other text will be displaed on same line */
+    color: rgb(177, 211, 177);
+    padding: 14px 16px; /* Adding padding around text */
+    text-decoration: none; /* Getting rid of underlines of text in navbar */
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 20px;
+    text-align: center;
+    position: relative; /* Setting text relative to it's normal positioning, allowing to use animation below */
+    -webkit-animation: moveNavText 5.75s; /* Animation for Safari 4.0 - 8.0 */
+    animation: moveNavText 5.75s;
+}
+
+/* moveNavText animation effect for moving text from above the fiew to navbar */
+@keyframes moveNavText {
+    from {top: -100vw;} /* Setting navbar text 100% above the viewport */
+    to {top: 0vw;} /* Lowers navbar text onto the navbar */
+}
+
+/* Screens 576px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 576px) {
+    .navbar a {
+        width: 25%; /* Makes each link take up 1/4 of navbar */
+        font-size: 12px;
+    }
+}
+
+/*-- NAVBAR HOVER EFFECTS --*/
+.navbar a:hover {
+    background-color: rgb(210, 235, 210); /* Background color of nav elements when hovered over */
+    color: rgb(38, 51, 35); /* Font color when hovered over */
+    font-weight: bold;
+}
+
+/*-- NAVBAR HOME BUTTON --*/
+.navbar a.active {
+    background-color: rgb(146, 180, 146);
+}
+
+/*----- END OF NAVBAR STYLING -----*/
+
+/*----- VIDEO STYLING -----*/
+/* Formatting for background video */
+#Plant_Video {
+    position: fixed;
+    right: 0; /* Ensuring no space between edge of video and page */
+    bottom: 0; /* Ensuring no space between bottom of video and page */
+    min-width: 100%; /* Ensuring the video is displayed across full width of page */
+    z-index: -1; /* Placing video behind other elements on page */
+}
+
+/*-- SCREENS 576px AND SMALLER WILL NOT DISPLAY BACKGROUND VIDEO --*/
+@media screen and (max-width: 576px) {
+    #Plant_Video {
+        display: none;
+    }
+}
+
+/*-- TEXT OVER VIDEO --*/
+.Video_Text {
+    background: rgba(0,0,0,0.5); /* Provides semi-transparent background for text to sit over */
+    color: #fff;
+    width: 100%; /* Ensures video-text container fills width of the video */
+    padding: 20px; /* Adds padding around the vide-text container so bkground goes slightly beyond text */
+    position: relative; /* Sets the text relative to it's normal positioning, allowing to use animation below */
+    -webkit-animation: moveVideoText 5.75s;
+    animation: moveVideoText 5.75s;
+}
+
+/*-- ANIMATION EFFECT TO CAUSE OVERLAY VIDEO TEXT TO MOVE FROM BOTTOM OF PAGE UPON PAGE LOAD --*/
+@keyframes moveVideoText {
+    from {top: -100vw;} /*Sets position of video text above viewport */
+    to {top: 0vw;} /* Sets video text to normal positioning on viewport */
+}
+
+/*----- END OF VIDEO STYLING -----*/
+
+/*---- TABLE STYLING ----*/
+* {
+    box-sizing: border-box;
+}
+
+.Column_1 {
+    float: left; 
+    width: 50%; /* Ensures column takes up half the page width */
+    padding: 10px;
+    padding-top: 3%; /* Ensuring there is space between top of column and heading */
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+}
+
+/*-- SCREENS 576px AND SMALLER WILL DISPLAY SCROLLBAR IF TEXT OVERFLOWS THE COLUMN HEIGHT --*/
+@media screen and (max-width: 576px) {
+    .Column_1 {
+        overflow: auto;
+    }
+}
+
+.Column_2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 1.9%;
+    height: 400px;
+    background-color: rgb(148, 175, 148);
+}
+
+/* CLASS APPLIED TO COLUMNS IN FINAL ROW, OVERRIDING HEIGHT AND PADDING */
+.Column_tall {
+    padding-top: 3.5%;
+    height: 450px;
+}
+
+/*-- INSERTS SOMETHING AFTR CONTENT OF SELECTED ELEMENTS --*/
+.Row:after {
+    content: ""; /* allowing footer to be displayed */
+    display: table; /* Telling browser to treat element as a table */
+    clear: both; /* Clearing any other elements from floating on left or right of an element */
+}
+
+/*---- END OF TABLE STYLING -----*/
+
+/*---- CONTACT FORM STYLING -----*/
+input[type=text] {
+    width: 100%; /* Each input box will cover full width of container */
+    padding: 12px; /* Adding padding inside text box */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Slightly rounding corners of text box border */
+    margin-top: 6px; /* Adding margin to top of box */
+    margin-bottom: 16px;
+    resize: vertical; /* Allowing users to resize text boxes vertically */
+    font-family:  'Playfair Display', serif;
+}
+/*-- HOVER EFFECTS FOR INPUT BOXES --*/
+
+input[type=text]:hover {
+    box-shadow: 0 0 5px #0f4d00 inset; /* Creates green shadow in text box when hovered over */
+}
+
+/*-- SUBMIT BUTTON --*/
+input[type=submit] {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto; /* Centering submit button */
+    margin-right: auto;
+    font-family: 'Playfair Display', serif;
+}
+
+/*-- SUBMIT BUTTON HOVER --*/
+input[type=submit]:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.5); /* Button increase in size */
+    transition: transform 1.5s; /* Transform effects lasting 1.5 seconds */
+}
+
+/*-- FORM ELEMENT --*/
+form {
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px; 
+    font-family: 'Shippori Mincho B1', serif;
+}
