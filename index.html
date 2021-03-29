@@ -16,7 +16,8 @@
             <a class="active" href="#Home">Home</a>
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
-            <a href="#Contact">Contact</a>
+            <!-- adding onclick and ondblclick functions to open/close contact form -->
+            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
         </div>
 
         <!-- Adding breaks to create space between navbar and first heading -->
@@ -48,6 +49,61 @@
             </strong>
         </div>
 
+        <!-- SLIDESHOW SECTION -->
+
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+                    <!-- Slide 1 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/152457558_1926192674185844_489438394475774856_n.jpg" alt="Picture of me">
+                        <div class="text"> I'm available to assist you on your project!</div>
+                    </div>
+                    <!-- Slide 2 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/HTML_CSS_and_JavaScript.jpeg" alt="HTML,CSS,JS LOGOS">
+                        <div class="text"> I am a full-stack software developer, <br>trained in:<br>HTML, CSS, Javascript,</div>
+                    </div>
+                    <!-- Slide 3 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/Python.png" alt="Python logo">
+                        <div class="text"> the popular programming language Python,</div>
+                    </div>
+                    <!-- Slide 4 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/C_Sharp_and_Dot_NET.png" alt="C# logo">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC,</div>
+                    </div>
+                    <!-- Slide 5 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/SQL_and_Database.jpg" alt="SQL logo">
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+                    <!-- Slide 6 of 6 -->
+                    <div class="mySlides fade">
+                        <img class="Slideshow_Images" src="./Img/laptop-apple_UQ9AB8NRV9.jpg" alt="Replace with pic of my choosing">
+                        <div class="text"><a class="white-text" onclick="openForm()" href="#Contact">Contact me!</a></div>
+                    </div>
+                    <!-- Previous and next buttons -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!-- Slide dots -->
+                <div style="text-align: center;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDESHOW SECTION END -->
+
         <!-- ABOUT SECTION -->
         <div class="Row" id="About">
             <!-- LEFT COLUMN -->
@@ -68,7 +124,7 @@ While researching careers relating to the internet, games, and website creation,
                 <br>
                 I am also skilled in: PowerPoint, Word, Excel, Visual Studio Code, and Project Management.
                 <br>
-                <br>Feel free to <a href="#Contact">contact</a> me below! I would love to work with you.
+                <br>Feel free to <a onclick="openForm()">contact</a> me below! I would love to work with you.
             </p>
         </div>
      </div>
@@ -91,32 +147,35 @@ While researching careers relating to the internet, games, and website creation,
     </div>
 
      <!-- CONTACT SECTION -->
-     <div class="Row" id="Contact">
-         <!-- CONTACT IMAGE, LEFT COLUMN -->
-         <div class="Column_2 Column_tall">
-             <img src="Img/flat-2126882_960_720.png" alt="Contact Image">
-         </div>
-         <!-- CONTACT FORM, RIGHT COLUMN -->
-         <div class="Column_1 Column_tall">
+     <div id="Contact">
+        <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+        <div class="form-popup" id="myForm">
+        <form action="https://formspree.io/kaialforrester@gmail.com" method="POST" class="form-container">
              <h1>Contact</h1>
-             <form action="" method="POST">
-                 <label>Name:</label>
-                    <input type="text" placeholder="Please enter your name here..">
-                <label>Email:</label>
-                    <input type="text" id="Email" name="Email" placeholder="Please enter your email here..">
+        
+                 <label for="name"><b>Name:</b></label>
+                    <input type="text" placeholder="Please enter your name here.." name="name" required>
+                <label for="email"><b>Email:</b></label>
+                    <input type="text" name="email" placeholder="Please enter your email here.." required>
+                <label for="phone"><b>Phone:</b></label>
+                    <input type="text" name="phone" placeholder="Please enter your phone number here.." required>
                 <label>Message:</label>
-                    <input type="text" id="Message" name="Message" placeholder="Please write your message here..">
-                    <input type="submit" value="SUBMIT">
+                    <input type="text" name="message" placeholder="Please write your message here..">
+                    
+                <button type="submit" class="btn">SUBMIT</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
              </form>
          </div>
      </div>
-</body>
+
      <!-- FOOTER SECTION -->
 
-    <footer>
-        <p>
+        <footer>
+         <p>
             <p class="center"> Email: kaialforrester@gmail.com |&nbsp; Portland, OR &nbsp;| 2021</p>
             <br>
-        </p>
-    </footer>
+         </p>
+        </footer>
+        <script src="./portfolio.js"></script>
+    </body>
 </html>

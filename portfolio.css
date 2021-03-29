@@ -1,17 +1,29 @@
 /* GENERAL STYLING */
-
+html {
+    scroll-behavior: smooth;
+}
 /*-- Body --*/
 body {
     margin: 0%; /*Ensures site displays all the way to the edge of browser screen */
+    opacity: 1; /* This and transition affect the page lloading fade in effect */
+    transition: 3s opacity; 
+    letter-spacing: .2vw;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5vw;
+    overflow-x: hidden; /* Prevents horizontal scroll bar from appearing when text is hovered over */
+    user-select: none; /* Prevents text on page from being highlighted by user*/
 }
-
+body.fade-out {
+    opacity: .1;
+}
 /*-- HEADING 1 ELEMENTS --*/
 h1 {
     text-transform: uppercase; /* Capitalizing all h1 headings */
     font-family: 'Shippori Mincho B1', serif; /* Setting font family of all h1 headings */
     text-align: center; /* Centering all h1 elements */
-    margin-top: 3%; /* Adding small margin above h1 elements */
+    margin-top: 1%; /* Adding small margin above h1 elements */
     color:rgb(49, 59, 49);
+    font-size: larger;
 }
 
 /*-- HEADING 1 ELEMENT HOVER EFFECT --*/
@@ -24,6 +36,7 @@ h1:hover {
 /*-- STYLING FOR PORTFOLIO TITLE TEXT --*/
 .white-text {
     color: #FFF;
+    padding-top: 10vh;
 }
 
 /*-- PARAGRAPH ELEMENTS --*/
@@ -56,6 +69,7 @@ p:hover {
 
 a {
     color: rgb(146, 172, 125); /* Makes all links green */
+    cursor: pointer;
 }
 
 /*-- IMAGE ELEMENTS --*/
@@ -63,7 +77,7 @@ img {
     filter: grayscale(75%); /* This rids images of 75% of their color */
     border-radius: 8px; /* Giving all images slightly rounded corners */
     max-width: 100%; /* Ensuring all images stay within the width of their container */
-    height: 340px; /* Sets height of all images */
+    height: 100%; /* Sets height of all images */
     display: block; /* Ensuring all images are able to be centered */
     margin-left: auto; /* In combination with margin right auto, this centers all images */
     margin-right: auto;
@@ -72,8 +86,7 @@ img {
 /*-- IMAGE ELEMENT HOVER EFFECTS */
 img:hover {
     filter: grayscale(5%); /* brings back most of the image's color when hovered over */
-    transition: transform 1s;
-    transform: scale(1.1); 
+   
 }
 
 /*-- MEDIA ADJUSTMENTS FOR SCREENS --*/
@@ -88,6 +101,7 @@ img:hover {
 footer {
     padding: 2%; /* Gives footer padding that is equal to 2% of the width of the element's area --*/
     background-color: white;
+    
 }
 /*----- END OF GENEERAL STYLING ----*/
 
@@ -114,10 +128,10 @@ footer {
     float: left;
     display: block; /* Ensuring all other text will be displaed on same line */
     color: rgb(177, 211, 177);
-    padding: 14px 16px; /* Adding padding around text */
+    padding: .89vw 1vw; /* Adding padding around text */
     text-decoration: none; /* Getting rid of underlines of text in navbar */
     font-family: 'Shippori Mincho B1', serif;
-    font-size: 20px;
+    font-size: 1.vw;
     text-align: center;
     position: relative; /* Setting text relative to it's normal positioning, allowing to use animation below */
     -webkit-animation: moveNavText 5.75s; /* Animation for Safari 4.0 - 8.0 */
@@ -174,6 +188,7 @@ footer {
     background: rgba(0,0,0,0.5); /* Provides semi-transparent background for text to sit over */
     color: #fff;
     width: 100%; /* Ensures video-text container fills width of the video */
+    height: 100vh;
     padding: 20px; /* Adds padding around the vide-text container so bkground goes slightly beyond text */
     position: relative; /* Sets the text relative to it's normal positioning, allowing to use animation below */
     -webkit-animation: moveVideoText 5.75s;
@@ -188,6 +203,107 @@ footer {
 
 /*----- END OF VIDEO STYLING -----*/
 
+/*--- SLIDESHOW STYLING ---*/
+#Slideshow_Background {
+    background: rgba(255,255,255,0.35);
+}
+
+.mySlides {
+    display: none; /* Prevents images from being displayed, will use JS to display these */
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0,0,0,.75);
+    width: 100%;
+}
+
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba (0,0,0,0.8);
+    color: white;
+}
+
+/* SLIDESHOW TEXT */
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra bold;
+    letter-spacing: .45vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px;
+}
+
+/* DOTS UNDER SLIDESHOW */
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+/* FADING ANIMATION */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+/*--- END OF SLIDESHOW STYLING ---*/
+
 /*---- TABLE STYLING ----*/
 * {
     box-sizing: border-box;
@@ -196,9 +312,9 @@ footer {
 .Column_1 {
     float: left; 
     width: 50%; /* Ensures column takes up half the page width */
-    padding: 10px;
+    padding: 1.6%px;
     padding-top: 3%; /* Ensuring there is space between top of column and heading */
-    height: 400px;
+    height: 450px;
     background-color: rgb(255, 255, 255);
 }
 
@@ -212,17 +328,13 @@ footer {
 .Column_2 {
     float: left;
     width: 50%;
-    padding: 10px;
+    padding: 1.6%px;
     padding-top: 1.9%;
-    height: 400px;
+    height: 450px;
     background-color: rgb(148, 175, 148);
 }
 
 /* CLASS APPLIED TO COLUMNS IN FINAL ROW, OVERRIDING HEIGHT AND PADDING */
-.Column_tall {
-    padding-top: 3.5%;
-    height: 450px;
-}
 
 /*-- INSERTS SOMETHING AFTR CONTENT OF SELECTED ELEMENTS --*/
 .Row:after {
@@ -234,49 +346,68 @@ footer {
 /*---- END OF TABLE STYLING -----*/
 
 /*---- CONTACT FORM STYLING -----*/
-input[type=text] {
-    width: 100%; /* Each input box will cover full width of container */
-    padding: 12px; /* Adding padding inside text box */
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Slightly rounding corners of text box border */
-    margin-top: 6px; /* Adding margin to top of box */
-    margin-bottom: 16px;
-    resize: vertical; /* Allowing users to resize text boxes vertically */
-    font-family:  'Playfair Display', serif;
-}
-/*-- HOVER EFFECTS FOR INPUT BOXES --*/
-
-input[type=text]:hover {
-    box-shadow: 0 0 5px #0f4d00 inset; /* Creates green shadow in text box when hovered over */
+.form-popup {
+    border: 3px solid #f0f1f0;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
 }
 
-/*-- SUBMIT BUTTON --*/
-input[type=submit] {
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: white;
+}
+
+.form-container input[type=text] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-size: 1vw;
+}
+
+button {
+    font-family: 'Shippori Mincho B1', serif;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover {
+    color: white;
+    background-color: black;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: silver;
+}
+/* Close Button */
+
+.form-container .cancel {
     background-color: black;
     color: white;
-    font-weight: bold;
-    padding: 12px 20px; 
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    margin-left: auto; /* Centering submit button */
-    margin-right: auto;
-    font-family: 'Playfair Display', serif;
+    border-color: gray;
 }
 
-/*-- SUBMIT BUTTON HOVER --*/
-input[type=submit]:hover {
+/* Submit Button */
+.form-container .btn {
     background-color: white;
     color: black;
-    transform: scale(1.5); /* Button increase in size */
-    transition: transform 1.5s; /* Transform effects lasting 1.5 seconds */
+    border: black;
+    margin-bottom: 1vh;
 }
 
-/*-- FORM ELEMENT --*/
-form {
-    border-radius: 5px;
-    background-color: white;
-    padding: 10px; 
-    font-family: 'Shippori Mincho B1', serif;
+.form-container .cancel:hover {
+    color: white;
+    background-color: rgb(146, 172, 125)
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
 }
